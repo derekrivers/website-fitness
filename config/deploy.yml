@@ -1,0 +1,35 @@
+service: website-fitness
+image: <DO_REGISTRY_REPOSITORY>
+
+servers:
+  web:
+    hosts:
+      - <DROPLET_IP>
+
+proxy:
+  ssl: true
+  host: <APP_HOST>
+  app_port: 3000
+
+registry:
+  server: registry.digitalocean.com
+  username: <DO_REGISTRY_USERNAME>
+  password:
+    - KAMAL_REGISTRY_PASSWORD=<DO_REGISTRY_PASSWORD>
+
+env:
+  clear:
+    RAILS_ENV: production
+    RAILS_LOG_TO_STDOUT: "true"
+    RAILS_SERVE_STATIC_FILES: "true"
+    APP_HOST: <APP_HOST>
+  secret:
+    - RAILS_MASTER_KEY
+
+builder:
+  arch: amd64
+
+ssh:
+  user: root
+
+accessories: {}
