@@ -1,3 +1,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --fitness-green: 76 175 80;
+    --fitness-purple: 123 63 140;
+    --fitness-gold: 245 197 24;
+    --fitness-ink: 15 23 42;
+    --fitness-cream: 248 250 252;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-50;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:shadow-lg;
+    background-color: rgb(var(--fitness-gold));
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5;
+    border-color: rgb(var(--fitness-purple));
+    background-color: rgb(var(--fitness-purple) / 0.2);
+  }
+
+  .section-shell {
+    @apply mx-auto max-w-6xl px-6 py-20 lg:px-8;
+  }
+
+  .section-kicker {
+    @apply text-sm font-semibold uppercase tracking-[0.3em];
+    color: rgb(var(--fitness-purple));
+  }
+
+  .card-surface {
+    @apply rounded-3xl border p-8 shadow-sm;
+    border-color: rgb(var(--fitness-purple) / 0.18);
+    background-color: rgb(var(--fitness-cream));
+  }
+}
+
+@layer utilities {
+  .bg-brand-green {
+    background-color: rgb(var(--fitness-green));
+  }
+
+  .bg-brand-purple {
+    background-color: rgb(var(--fitness-purple));
+  }
+
+  .bg-brand-gold {
+    background-color: rgb(var(--fitness-gold));
+  }
+
+  .bg-brand-ink {
+    background-color: rgb(var(--fitness-ink));
+  }
+
+  .text-brand-green {
+    color: rgb(var(--fitness-green));
+  }
+
+  .text-brand-purple {
+    color: rgb(var(--fitness-purple));
+  }
+
+  .text-brand-gold {
+    color: rgb(var(--fitness-gold));
+  }
+}
